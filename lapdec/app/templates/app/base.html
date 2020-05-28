@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="{% static 'app/main.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <head>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <strong>LAPTOP DECISION</strong>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Laptops
+                    </a>
+                    <a class="navbar-item">
+                        Finder
+                    </a>
+                    <a class="navbar-item">
+                        Compare
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </head>
+    {% block body %}
+    {% endblock %}
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Laptop Decision</strong> - The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
+          </p>
+          <p>Planet Earth 🌎 | 2020</p>
+        </div>
+    </footer>
+</body>
+</html>
