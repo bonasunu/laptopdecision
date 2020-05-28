@@ -14,20 +14,23 @@
         <nav class="bd-navbar navbar is-warning">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
+                    <p class="navbar-item">
                         <strong>LAPTOP DECISION</strong>
-                    </a>
+                    </p>
                 </div>
     
                 <div class="navbar-menu is-active is-warning">
                     <div class="navbar-start">
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="{% url 'home' %}">
+                            Homepage
+                        </a>
+                        <a class="navbar-item" href="{% url 'laptops' %}">
                             Laptops
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="{% url 'finder' %}">
                             Finder
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="{% url 'comparison' %}">
                             Compare
                         </a>
                     </div>
