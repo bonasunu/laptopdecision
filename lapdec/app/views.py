@@ -27,6 +27,10 @@ def finder(request):
     return render(request, 'app/finder.html', context)
 
 def help_me_choose(request):
+
+    #TODO
+    # Implement "Help me choose"
+
     return render(request, 'app/help-me-choose.html')
 
 def laptop(request, slug):
