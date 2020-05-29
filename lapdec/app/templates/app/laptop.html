@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+Laptop
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered">{{ laptop.item_name}}</h1>
+        {{ laptop }}
+    </div>
+</section>
+{% endblock %}

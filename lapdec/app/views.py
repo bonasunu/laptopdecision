@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Laptop
 from .filters import LaptopFilter
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 def index(request):
@@ -25,6 +26,17 @@ def finder(request):
 
     return render(request, 'app/finder.html', context)
 
-def help(request):
+def help_me_choose(request):
     return render(request, 'app/help-me-choose.html')
 
+def laptop(request, slug):
+    try:
+      laptop = Laptop.objects.get(slug=slug)
+    except Laptop.DoesNotExist:
+      raise Http404("Laptop does not exist")
+
+    context = {
+      "laptop": laptop,
+    }
+    
+    return render(request, "app/laptop.html", context)
