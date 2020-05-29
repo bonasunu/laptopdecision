@@ -26,4 +26,11 @@ def finder(request):
     return render(request, 'app/finder.html', context)
 
 def comparison(request):
-    return render(request, 'app/comparison.html')
+
+    laptops = Laptop.objects.all()
+
+    context = {
+        'laptops': laptops
+    }
+
+    return render(request, 'app/comparison.html', context)
