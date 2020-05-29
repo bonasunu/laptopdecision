@@ -25,6 +25,7 @@ class Laptop(models.Model):
         ('Full-size Keyboard', 'Full-size Keyboard')
     )
 
+    slug = models.SlugField(max_length=100, unique=True)
     category = models.CharField(max_length=32, choices=CATEGORY)
     brand = models.CharField(max_length=64)
     item_name = models.CharField(max_length=256)
@@ -47,6 +48,6 @@ class Laptop(models.Model):
     battery = models.CharField(max_length=64)
     weight = models.FloatField()
     dimension = models.CharField(max_length=64)
-    release_date = models.DateField(default=timezone.now())
+    release_date = models.DateField(default=timezone.now)
     headline = models.CharField(max_length=1024, default='Headline')
     summary = models.CharField(max_length=1024, default='Summary')
