@@ -38,23 +38,58 @@ Laptop Decision
                     </div>
                 </div>
             </div>
-            <div class="column is-one-quarter">
-                <div class="box">
-                    <div class="media-content">
-                        <div class="content has-text-centered">
-                            <p class="title is-4">Browse Our Database</p>
-                            <p>Check our database before you choose a laptop</p>
-                            <div class="buttons is-centered">
-                                <a class="button is-rounded is-danger is-light" href="{% url 'laptops' %}">
-                                    Start Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <hr>
+        <div class="columns is-centered">
+            <div class="column is-three-quarters">
+                <h2 class="title is-3 has-text-centered">Most Popular Laptops</h2>
+                <table class="table is-fullwidth">
+                    <tbody>
+                        {% for item in laptops %}
+                            <tr>
+                                <td>
+                                    <p class="has-text-centered">
+                                        <a class="title is-5">
+                                            {{ item.brand }} - {{ item.item_name }} {{ item.headline }}
+                                        </a>
+                                    </p>
+                                    <p>
+                                        Category {{ item.category }} | {{ item.summary }}
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="column">
+                <h2 class="title is-3 has-text-centered">Latest Laptops</h2>
+                <table class="table is-fullwidth">
+                    <tbody>
+                        {% for item in laptops %}
+                            <tr>
+                                <td>
+                                    <p>
+                                        <a class="title is-6">
+                                            {{ item.brand }} - {{ item.item_name }}
+                                        </a>
+                                    </p>
+                                    <p>
+                                        Category: {{ item.category }} | 
+                                        {{ item.cpu }} {{ item.cpu_speed }} | 
+                                        {{ item.gpu }} | 
+                                        {{ item.resolution }} |
+                                        {{ item.ram_type }} {{ item.ram_size }} |
+                                        {{ item.diskdrive }}
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </section>
 {% endblock %}

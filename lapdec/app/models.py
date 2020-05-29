@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Laptop(models.Model):
@@ -46,3 +47,6 @@ class Laptop(models.Model):
     battery = models.CharField(max_length=64)
     weight = models.FloatField()
     dimension = models.CharField(max_length=64)
+    release_date = models.DateField(default=datetime.date.today())
+    headline = models.CharField(max_length=1024, default='Headline')
+    summary = models.CharField(max_length=1024, default='Summary')
