@@ -11,7 +11,7 @@ Finder
         <div class="columns is-centered">
             <div class="column">
                 <h2 class="title is-3 has-text-centered">Finder</h2>
-                <form method="get">
+                <form id="finder_form" method="get">
                     <div class="field">
                         <div class="control">
                             <label class="label">Categories</label>
@@ -32,6 +32,11 @@ Finder
                     </div>
                     <div class="buttons is-centered">
                         <button type="submit" class="button is-rounded is-danger is-light">Find</button>
+                        <a href="{% url 'finder' %}" class="button is-rounded is-danger is-light">
+                            Reset Filters
+                        </a>
+                    </div>
+                    <div class="buttons is-centered">
                     </div>
                 </form>
             </div>

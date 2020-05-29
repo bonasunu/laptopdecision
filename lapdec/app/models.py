@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from django.utils import timezone
 
 # Create your models here.
 class Laptop(models.Model):
@@ -47,6 +47,6 @@ class Laptop(models.Model):
     battery = models.CharField(max_length=64)
     weight = models.FloatField()
     dimension = models.CharField(max_length=64)
-    release_date = models.DateField(default=datetime.date.today())
+    release_date = models.DateField(default=timezone.now())
     headline = models.CharField(max_length=1024, default='Headline')
     summary = models.CharField(max_length=1024, default='Summary')
