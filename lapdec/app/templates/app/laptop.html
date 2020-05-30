@@ -8,8 +8,79 @@ Laptop
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title has-text-centered">{{ laptop.item_name}}</h1>
-        {{ laptop }}
+        <h1 class="title has-text-centered">{{ laptop.brand }} {{ laptop.item_name}}</h1>
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <table class="table is-fullwidth">
+                    <tbody>
+                        <tr>
+                            <th>
+                                Model Name
+                            </th>
+                            <td>
+                                {{ laptop.brand }} - {{ laptop.item_name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                CPU
+                            </th>
+                            <td>
+                                {{ laptop.cpu }} {{ laptop.cpu_speed}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                GPU
+                            </th>
+                            <td>
+                                {{ laptop.gpu }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                RAM
+                            </th>
+                            <td>
+                                {{ laptop.ram_size }} {{ laptop.ram_type }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Storage
+                            </th>
+                            <td>
+                                {{ laptop.diskdrive }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Screen
+                            </th>
+                            <td>
+                                {{ laptop.screen_size }} - {{ laptop.resolution }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Dimension
+                            </th>
+                            <td>
+                                {{ laptop.dimension }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Weight
+                            </th>
+                            <td>
+                                {{ laptop.weight }} Kg
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
