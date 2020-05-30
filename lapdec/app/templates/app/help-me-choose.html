@@ -11,7 +11,7 @@ Help Me Choose
         <h1 class="title has-text-centered">Help Me Choose</h1>
         <div class="columns is-centered">
             <div class="column is-half">
-                <form action="" method="POST" id="help_form">
+                <form action="{% url 'result' %}" method="POST" id="help_form">
                     {% csrf_token %}
                     <h2 class="title is-5 has-text-centered">How often will you use your laptop on the move?</h2>
                     <div class="field">
@@ -78,7 +78,7 @@ Help Me Choose
                                 Professional Software
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="activity_answer" value="intensive">
+                                <input type="checkbox" name="activity_answer" value="intensive" onchange="act(this)">
                                 Intensive graphic or video workloads
                             </label>
                         </div>

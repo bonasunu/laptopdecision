@@ -31,6 +31,10 @@ def help_me_choose(request):
     #TODO
     # Implement "Help me choose"
 
+    return render(request, 'app/help-me-choose.html')
+
+def result(request):
+
     if request.method == 'POST':
 
         mobility = request.POST.get('mobility_answer')
@@ -44,10 +48,7 @@ def help_me_choose(request):
         }
     
         return render(request, 'app/result.html', context)
-
-    return render(request, 'app/help-me-choose.html')
-
-def result(request):
+        
     return render(request, 'app/result.html')
 
 def laptop(request, slug):
