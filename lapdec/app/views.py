@@ -30,9 +30,6 @@ def finder(request):
 
 def help_me_choose(request):
 
-    #TODO
-    # Implement "Help me choose"
-
     return render(request, 'app/help-me-choose.html')
 
 def result(request):
@@ -42,12 +39,23 @@ def result(request):
         mobility = request.POST.get('mobility_answer')
         location = request.POST.getlist('location_answer')
         activity = request.POST.getlist('activity_answer')
+        result = ''
+
+        if mobility == 'everyday':
+            results = Laptop.objects.all().filter(category='Ultrabook')
+        elif mobility == 'few':
+            result = Laptop.objects.all().filter(category='Home/Business')
+        else:
+            results = Laptop.objects.all().filter(category='Gaming')
 
         context = {
             'mobility': mobility,
             'location': location,
-            'activity': activity
+            'activity': activity,
+            'result': result
         }
+
+        print(result)
     
         return render(request, 'app/result.html', context)
 

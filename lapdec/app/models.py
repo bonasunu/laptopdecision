@@ -51,6 +51,3 @@ class Laptop(models.Model):
     release_date = models.DateField(default=timezone.now)
     headline = models.CharField(max_length=1024, default='Headline')
     summary = models.CharField(max_length=1024, default='Summary')
-
-#TODO
-# Add more laptops

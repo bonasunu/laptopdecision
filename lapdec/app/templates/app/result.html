@@ -19,13 +19,27 @@ Result
                     </a>
                 </div>
                 <br>
-                {{ mobility }}
-                {% for item in location %}
-                    {{ item }}
-                {% endfor %}
-                {% for item in activity %}
-                    {{ item }}
-                {% endfor %}
+                <table class="table">
+                    {% for item in result %}
+                        <tr>
+                            <td>
+                                <p>
+                                    <a class="title is-6" href="{{ item.slug }}">
+                                        {{ item.brand }} - {{ item.item_name }}
+                                    </a>
+                                </p>
+                                <p>
+                                    Category: {{ item.category }} | 
+                                    {{ item.cpu }} {{ item.cpu_speed }} | 
+                                    {{ item.gpu }} | 
+                                    {{ item.resolution }} |
+                                    {{ item.ram_type }} {{ item.ram_size }} |
+                                    {{ item.diskdrive }}
+                                </p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
         
