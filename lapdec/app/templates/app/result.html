@@ -8,13 +8,27 @@ Result
 {% block body %}
 <section class="section">
     <div class="container">
-        {{ mobility }}
-        {% for item in location %}
-            {{ item }}
-        {% endfor %}
-        {% for item in activity %}
-            {{ item }}
-        {% endfor %}
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <h1 class="title is-4 has-text-centered">
+                    Our recommendations for you
+                </h1>
+                <div class="buttons">
+                    <a href="{% url 'help' %}" class="button is-rounded is-warning is-light">
+                        <strong>Start over</strong>
+                    </a>
+                </div>
+                <br>
+                {{ mobility }}
+                {% for item in location %}
+                    {{ item }}
+                {% endfor %}
+                {% for item in activity %}
+                    {{ item }}
+                {% endfor %}
+            </div>
+        </div>
+        
     </div>
 </section>
 {% endblock %}

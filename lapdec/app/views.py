@@ -7,9 +7,11 @@ from django.views.generic import ListView, DetailView
 def index(request):
 
     laptops = Laptop.objects.all()
+    latest = Laptop.objects.all()[:3]
 
     context = {
-        'laptops': laptops
+        'laptops': laptops,
+        'latest': latest
     }
 
     return render(request, 'app/index.html', context)
@@ -48,7 +50,7 @@ def result(request):
         }
     
         return render(request, 'app/result.html', context)
-        
+
     return render(request, 'app/result.html')
 
 def laptop(request, slug):
