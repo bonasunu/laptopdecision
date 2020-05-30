@@ -42,11 +42,11 @@ def result(request):
         result = ''
 
         if mobility == 'everyday':
-            results = Laptop.objects.all().filter(category='Ultrabook')
+            result = Laptop.objects.all().filter(category='Ultrabook')
         elif mobility == 'few':
             result = Laptop.objects.all().filter(category='Home/Business')
         else:
-            results = Laptop.objects.all().filter(category='Gaming')
+            result = Laptop.objects.all().filter(category='Gaming')
 
         context = {
             'mobility': mobility,
