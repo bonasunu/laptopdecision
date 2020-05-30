@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+Result
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        {{ mobility }}
+        {% for item in location %}
+            {{ item }}
+        {% endfor %}
+        {% for item in activity %}
+            {{ item }}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

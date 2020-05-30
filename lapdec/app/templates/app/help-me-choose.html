@@ -9,6 +9,131 @@ Help Me Choose
 <section class="section">
     <div class="container">
         <h1 class="title has-text-centered">Help Me Choose</h1>
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <form action="" method="POST" id="help_form">
+                    {% csrf_token %}
+                    <h2 class="title is-5 has-text-centered">How often will you use your laptop on the move?</h2>
+                    <div class="field">
+                        <div class="control has-text-centered" id="mobility">
+                            <label class="radio">
+                                <input type="radio" name="mobility_answer" value="never" onclick='isRadioChecked()'>
+                                Never
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="mobility_answer" value="once" onclick='isRadioChecked()'>
+                                Once in a while
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="mobility_answer" value="few" onclick='isRadioChecked()'>
+                                A few days in a week
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="mobility_answer" value="everyday" onclick='isRadioChecked()'>
+                                Every Day
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="title is-5 has-text-centered">Where will you be using your laptop most of the time?</h2>
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <label class="checkbox">
+                                <input type="checkbox" name="location_answer" value="home" onchange="loc(this)">
+                                Home
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="location_answer" value="school" onchange="loc(this)">
+                                School
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="location_answer" value="work" onchange="loc(this)">
+                                Work
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="title is-5 has-text-centered">How will you be using your laptop?</h2>
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="personal" onchange="act(this)">
+                                Personal
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="productivity" onchange="act(this)">
+                                Productivity
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="gaming" onchange="act(this)">
+                                Gaming
+                            </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="multi-tasking" onchange="act(this)">
+                                Multi-tasking
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="pro-software" onchange="act(this)">
+                                Professional Software
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="activity_answer" value="intensive">
+                                Intensive graphic or video workloads
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="buttons is-centered">
+                        <input type="submit" class="button is-rounded is-danger is-light" id="submitButton" disabled='disabled'>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
+<script>
+    // Javasscript for Input Button
+
+    var radioChecked = false;
+    var locAnswer = 0;
+    var actAnswer = 0;
+
+    function isRadioChecked() {
+        radioChecked = true;
+        activeBtn();
+    }
+    
+    function loc(element) {
+        if (element.checked == true) {
+            locAnswer += 1;
+        }
+        else {
+            locAnswer -= 1;
+        };
+
+        activeBtn();
+    };
+
+    function act(element) {
+        if (element.checked == true) {
+            actAnswer += 1;
+        }
+        else {
+            actAnswer -= 1;
+        };
+
+        activeBtn();
+    };
+
+    function activeBtn() {
+        if (locAnswer > 0 && radioChecked == true && actAnswer > 0) {
+            // console.log(sum);
+            document.getElementById('submitButton').removeAttribute('disabled');
+        }
+        else {
+            document.getElementById('submitButton').setAttribute('disabled','disabled');
+        }
+    };
+</script>
 {% endblock %}

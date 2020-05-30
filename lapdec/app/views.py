@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Laptop
 from .filters import LaptopFilter
 from django.views.generic import ListView, DetailView
@@ -31,7 +31,24 @@ def help_me_choose(request):
     #TODO
     # Implement "Help me choose"
 
+    if request.method == 'POST':
+
+        mobility = request.POST.get('mobility_answer')
+        location = request.POST.getlist('location_answer')
+        activity = request.POST.getlist('activity_answer')
+
+        context = {
+            'mobility': mobility,
+            'location': location,
+            'activity': activity
+        }
+    
+        return render(request, 'app/result.html', context)
+
     return render(request, 'app/help-me-choose.html')
+
+def result(request):
+    return render(request, 'app/result.html')
 
 def laptop(request, slug):
     try:
